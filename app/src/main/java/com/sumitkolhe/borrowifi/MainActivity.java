@@ -1,5 +1,4 @@
 package com.sumitkolhe.borrowifi;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -30,20 +29,34 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> arrayList = new ArrayList<>();
     private ArrayAdapter adapter;
     private TextView mactextview;
+    private Button nextbutton;
 
+    String macaddressforjson;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         buttonScan = findViewById(R.id.scanBtn);
+
         buttonScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                scanWifi();
+                //scanWifi();
+                openwifisettings();
             }
         });
         mactextview = findViewById(R.id.mac);
+        nextbutton = findViewById(R.id.nextBtn);
+        nextbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openpricing();
+
+            }
+
+        });
+
 
 
         listView = findViewById(R.id.wifiList);
@@ -58,9 +71,13 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(adapter);
         scanWifi();
-       // displaymacaddress();
+        macaddressforjson = getMacAddr();
         mactextview.setText(getMacAddr());
 ;    }
+
+    private void openwifisettings() {
+        startActivity(new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS));
+    }
 
 
     public static String getMacAddr() {
@@ -110,5 +127,12 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    public void openpricing(){
+        Intent intent = new Intent(this, Pricing.class);
+        startActivity(intent);
+    }
+
 }
+
+
 
