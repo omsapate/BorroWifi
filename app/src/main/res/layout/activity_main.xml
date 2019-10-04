@@ -47,31 +47,30 @@
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/wifi_animation"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="220dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
                 app:lottie_autoPlay="true"
                 app:lottie_fileName="wifi.json"
-                app:lottie_loop="true"/>
+                app:lottie_loop="true" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+
                 <ListView
                     android:id="@+id/wifiList"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="20dp"
                     android:layout_weight="0.75"
                     android:padding="10dp"
                     android:layout_marginTop="10dp"
-                    android:choiceMode="singleChoice"
-
-                    />
+                    android:choiceMode="singleChoice" />
 
                 <TextView
                     android:id="@+id/mac"
@@ -107,7 +106,6 @@
                         android:layout_marginRight="20dp"
                         android:text="Next"
                         android:textColor="#ffffff"/>
-
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

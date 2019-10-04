@@ -10,6 +10,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="Select a Plan"
+            android:textSize="25dp"
+            android:padding="20sp"
+            android:textStyle="bold"/>
+
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/payment_animation"
             android:layout_width="match_parent"
@@ -21,165 +30,162 @@
             app:lottie_loop="true" />
 
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:weightSum="4">
-
-            <androidx.cardview.widget.CardView
+            android:layout_height="wrap_content">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:id="@+id/plan1"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="5dp"
-                android:clickable="true"
-                android:layout_weight="1"
-                android:layout_margin="10dp"
-                >
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:weightSum="4">
 
-                <LinearLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/card_gradient">
-
+                    android:layout_height="100dp"
+                    android:id="@+id/plan1"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@drawable/card_gradient">
 
-                        <TextView
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Plan 1"
-                            android:textSize="30dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginTop="12dp"
-                            android:textColor="#FFFFFF"/>
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Valid for 1 minutes"
-                            android:textSize="15dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginTop="12dp"
-                            android:textColor="#FFFFFF"
-                            />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Plan 1"
+                                android:textSize="30dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="12dp"
+                                android:textColor="#FFFFFF"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Valid for 1 minutes"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="12dp"
+                                android:textColor="#FFFFFF"
+                                />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
-                </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:id="@+id/plan2"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="5dp"
-                android:clickable="true"
-                android:layout_weight="1"
-                android:layout_margin="10dp"
-                >
-
-                <LinearLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/card_gradient">
-
+                    android:layout_height="100dp"
+                    android:id="@+id/plan2"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@drawable/card_gradient">
 
-                        <TextView
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Plan 2"
-                            android:textSize="30dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginTop="12dp"
-                            android:textColor="#FFFFFF"/>
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Valid for 5 minutes"
-                            android:textSize="15dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginTop="12dp"
-                            android:textColor="#FFFFFF"
-                            />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Plan 2"
+                                android:textSize="30dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="12dp"
+                                android:textColor="#FFFFFF"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Valid for 5 minutes"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="12dp"
+                                android:textColor="#FFFFFF"
+                                />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
-                </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:id="@+id/plan3"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="5dp"
-                android:clickable="true"
-                android:layout_weight="1"
-                android:layout_margin="10dp"
-                >
-
-                <LinearLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/card_gradient">
-
+                    android:layout_height="100dp"
+                    android:id="@+id/plan3"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp"
+                    android:clickable="true"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@drawable/card_gradient">
 
-                        <TextView
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Plan 3"
-                            android:textSize="30dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginTop="12dp"
-                            android:textColor="#FFFFFF"/>
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Valid for 60 minutes"
-                            android:textSize="15dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginTop="12dp"
-                            android:textColor="#FFFFFF"
-                            />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Plan 3"
+                                android:textSize="30dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="12dp"
+                                android:textColor="#FFFFFF"/>
 
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Valid for 60 minutes"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="12dp"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
                     </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-
-        </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
