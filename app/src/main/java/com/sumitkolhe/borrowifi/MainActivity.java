@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
         if (!wifiManager.isWifiEnabled()) {
-            Toast.makeText(this, "WiFi is disabled ... We need to enable it", Toast.LENGTH_LONG).show();
+
             wifiManager.setWifiEnabled(true);
         }
 
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//FUNCTION TO RETREIVE MAC ADDRESS
+//FUNCTION TO RETRIEVE MAC ADDRESS
 public static String getMacAddr() {
     try {
         List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
@@ -140,8 +140,10 @@ public static String getMacAddr() {
             unregisterReceiver(this);
 
             for (ScanResult scanResult : results) {
-                arrayList.add(scanResult.SSID + " - " + scanResult.capabilities);
-                adapter.notifyDataSetChanged();
+                if (scanResult.SSID.contains("borrowifi")) {
+                    arrayList.add(scanResult.SSID );
+                    adapter.notifyDataSetChanged();
+                }
             }
         }
     };
@@ -162,7 +164,6 @@ public static String getMacAddr() {
         arrayList.clear();
         registerReceiver(wifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
         wifiManager.startScan();
-        Toast.makeText(this, "Scanning WiFi ...", Toast.LENGTH_SHORT).show();
     }
 
 //////////////////////////////////////////////////////////////////////////////////////
