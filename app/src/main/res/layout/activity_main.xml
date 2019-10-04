@@ -1,74 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Connect to a WiFi network"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:padding="10dp"
-        android:textColor="#000000"/>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <ListView
-            android:id="@+id/wifiList"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="50dp"
-            android:layout_weight="0.75"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:choiceMode="singleChoice"
-
-            android:background="@drawable/bkg"/>
-
-        <TextView
-            android:id="@+id/mac"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:padding="10dp"
-            android:textSize="20dp"
-            android:textAlignment="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:weightSum="5">
 
-            <Button
-                android:id="@+id/scanBtn"
-                android:layout_width="148dp"
-                android:layout_height="50dp"
-                android:layout_gravity="bottom"
-                android:background="@drawable/button"
-                android:layout_marginRight="75dp"
-                android:layout_marginLeft="20dp"
-                android:text="Connect"
-                android:textColor="#ffffff"/>
+            <TextView
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="BorroWifi"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:padding="20dp"
+                android:textColor="#000000"/>
 
-            <Button
-                android:id="@+id/nextBtn"
-                android:layout_width="148dp"
-                android:layout_height="50dp"
-                android:layout_gravity="bottom"
-                android:background="@drawable/button"
-                android:layout_marginRight="20dp"
-                android:text="Next"
-                android:textColor="#ffffff"/>
+            <ImageView
+                android:id="@+id/dev_details"
+                android:clickable="true"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:src="@drawable/account_circle_outline"
+                android:padding="25dp"/>
+
 
         </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/wifi_animation"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="wifi.json"
+                app:lottie_loop="true"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/wifiList"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="0.75"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:choiceMode="singleChoice"
+
+                    />
+
+                <TextView
+                    android:id="@+id/mac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:padding="10dp"
+                    android:textSize="20dp"
+                    android:textAlignment="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/scanBtn"
+                        android:layout_width="148dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+
+                        android:layout_marginRight="75dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="Connect"
+                        android:textColor="#ffffff"/>
+
+                    <Button
+                        android:id="@+id/nextBtn"
+                        android:layout_width="148dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+
+                        android:layout_marginRight="20dp"
+                        android:text="Next"
+                        android:textColor="#ffffff"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
-
 </LinearLayout>
