@@ -1,17 +1,16 @@
 package com.sumitkolhe.borrowifi;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Pricing extends AppCompatActivity {
+public class Pricing extends AppCompatActivity implements View.OnClickListener{
 
-    Button SendData;
     Details userdetails;
     DatabaseReference refer;
 
@@ -19,22 +18,55 @@ public class Pricing extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pricing);
+        CardView card1 = findViewById(R.id.plan1);
+        CardView card2 = findViewById(R.id.plan2);
+        CardView card3 = findViewById(R.id.plan3);
 
-        SendData = findViewById(R.id.submitjson);
+        card1.setOnClickListener(this);
+        card2.setOnClickListener(this);
+        card3.setOnClickListener(this);
+
+
+
         userdetails = new Details();
         refer = FirebaseDatabase.getInstance().getReference().child("Members");
 
-        SendData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              String macjson = MainActivity.getMacAddr();
+    }
 
-              userdetails.setMAC_address(macjson);
-              int time = userdetails.setTimer(600);
+    @Override
+    public void onClick(View view) {
+        int duration = 0;
+        switch (view.getId()) {
 
-              refer.child(userdetails.getMAC_address()).setValue(time);
-              Toast.makeText(Pricing.this,"Data Sent to Database",Toast.LENGTH_LONG).show();
-            }
-        });
+            case R.id.plan1:
+                duration = 60;
+                Toast.makeText(this, "1 min", Toast.LENGTH_LONG).show();
+                SendJson(duration);
+
+                break;
+
+            case R.id.plan2:
+                duration = 300;
+                Toast.makeText(this, "5 min", Toast.LENGTH_LONG).show();
+                SendJson(duration);
+                break;
+
+            case R.id.plan3:
+                duration = 1800;
+                Toast.makeText(this, "30 min", Toast.LENGTH_LONG).show();
+                SendJson(duration);
+                break;
+
+        }
+    }
+    public void SendJson(int duration){
+
+        String macjson = MainActivity.getMacAddr();
+
+        userdetails.setMAC_address(macjson);
+        int time = userdetails.setTimer(duration);
+        refer.child(userdetails.getMAC_address()).setValue(time);
+        Toast.makeText(Pricing.this, "Data Sent to Database", Toast.LENGTH_LONG).show();
     }
 }
+
