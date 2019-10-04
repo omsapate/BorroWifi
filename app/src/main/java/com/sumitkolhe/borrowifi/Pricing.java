@@ -1,5 +1,7 @@
 package com.sumitkolhe.borrowifi;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Toast;
 
@@ -42,6 +44,7 @@ public class Pricing extends AppCompatActivity implements View.OnClickListener{
                 duration = 60;
                 Toast.makeText(this, "1 min", Toast.LENGTH_LONG).show();
                 SendJson(duration);
+                openconnected();
 
                 break;
 
@@ -49,12 +52,14 @@ public class Pricing extends AppCompatActivity implements View.OnClickListener{
                 duration = 300;
                 Toast.makeText(this, "5 min", Toast.LENGTH_LONG).show();
                 SendJson(duration);
+                openconnected();
                 break;
 
             case R.id.plan3:
                 duration = 1800;
                 Toast.makeText(this, "30 min", Toast.LENGTH_LONG).show();
                 SendJson(duration);
+                openconnected();
                 break;
 
         }
@@ -67,6 +72,17 @@ public class Pricing extends AppCompatActivity implements View.OnClickListener{
         int time = userdetails.setTimer(duration);
         refer.child(userdetails.getMAC_address()).setValue(time);
         Toast.makeText(Pricing.this, "Data Sent to Database", Toast.LENGTH_LONG).show();
+    }
+
+    public void openconnected(){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                Intent i=new Intent(Pricing.this,Connected.class);
+                startActivity(i);
+            }
+        }, 1500);
     }
 }
 
