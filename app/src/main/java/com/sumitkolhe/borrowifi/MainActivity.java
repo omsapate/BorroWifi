@@ -24,7 +24,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 ///////////////////////////////////////////////////////////////////////////////
 
-    //Declarationds for objects
+    //Declarations for objects
 
     String macaddressforjson;
     private WifiManager wifiManager;
@@ -94,8 +94,6 @@ public class MainActivity extends AppCompatActivity {
         if (isFirstRun) {
             //show start activity
             startActivity(new Intent(MainActivity.this, IntroActivity.class));
-            Toast.makeText(MainActivity.this, "First Run", Toast.LENGTH_LONG)
-                    .show();
         }
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
                 .putBoolean("isFirstRun", false).apply();
