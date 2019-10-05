@@ -37,7 +37,7 @@ public class Pricing extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        int duration = 0;
+        int duration;
         switch (view.getId()) {
 
             case R.id.plan1:
@@ -82,7 +82,7 @@ public class Pricing extends AppCompatActivity implements View.OnClickListener{
                 Intent i=new Intent(Pricing.this,Connected.class);
                 startActivity(i);
             }
-        }, 1500);
+        }, 800);
     }
 }
 

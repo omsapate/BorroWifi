@@ -22,8 +22,38 @@
         app:lottie_autoPlay="true"
         app:lottie_fileName="connected.json"
         app:lottie_loop="true"
-        app:lottie_speed="0.75"/>
+        app:lottie_speed="0.75"
+        />
 
-    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connected!"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/materialButton"
+        app:layout_constraintTop_toBottomOf="@+id/connected_animation"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:onClick="home"
+        android:text="Home"
+        android:textSize="18dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        style="@style/Widget.AppCompat.Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/connected_animation"
+        app:layout_constraintVertical_bias="0.418"
+        android:background="@drawable/card_gradient"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
