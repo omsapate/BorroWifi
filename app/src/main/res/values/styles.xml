@@ -10,5 +10,15 @@
         <item name="android:colorBackground">@color/background</item>
     </style>
 
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">#2196f3</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="ButtonStyle"
+        parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">#2196f3</item>
+
+    </style>
 
 </resources>

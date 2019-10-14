@@ -50,14 +50,14 @@ public class IntroActivity extends OnboarderActivity {
     @Override
     public void onSkipButtonPressed() {
         super.onSkipButtonPressed();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, getstarted.class);
         startActivity(intent);
 
     }
 
     @Override
     public void onFinishButtonPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, getstarted.class);
         startActivity(intent);
     }
 

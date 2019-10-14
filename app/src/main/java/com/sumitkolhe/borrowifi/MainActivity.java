@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -88,15 +87,6 @@ public class MainActivity extends AppCompatActivity {
         mactextview.setText(getMacAddr());
 
 
-        //TO CHECK IF THE ACTIVITY IS RUN FOR THE FIRST TIME OR NOT TO PREVENT INTROACTIVITY FROM RUNNING EVERY TIME THE APPLICATION IS LAUNCHED
-        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .getBoolean("isFirstRun", true);
-        if (isFirstRun) {
-            //show start activity
-            startActivity(new Intent(MainActivity.this, IntroActivity.class));
-        }
-        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                .putBoolean("isFirstRun", false).apply();
 
     }
 

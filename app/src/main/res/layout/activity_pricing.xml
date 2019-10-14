@@ -19,20 +19,23 @@
             android:padding="20sp"
             android:textStyle="bold"/>
 
+
+
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/payment_animation"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="300dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="visa.json"
+            app:lottie_fileName="card.json"
             app:lottie_loop="true" />
 
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="380dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -63,6 +66,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -76,11 +80,11 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Valid for 1 minutes"
+                                android:text="Valid for 1 minute"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 android:layout_marginLeft="12dp"
-                                android:layout_marginTop="12dp"
+                                android:layout_marginTop="8dp"
                                 android:textColor="#FFFFFF"
                                 />
 
@@ -130,7 +134,7 @@
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 android:layout_marginLeft="12dp"
-                                android:layout_marginTop="12dp"
+                                android:layout_marginTop="8dp"
                                 android:textColor="#FFFFFF"
                                 />
 
@@ -180,12 +184,28 @@
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 android:layout_marginLeft="12dp"
-                                android:layout_marginTop="12dp"
+                                android:layout_marginTop="8dp"
                                 android:textColor="#FFFFFF" />
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sendbtn"
+            style="@style/AppTheme.Button"
+            android:layout_width="140dp"
+            android:layout_height="70dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="15dp"
+            android:backgroundTint="#304fff"
+            android:text="Next"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            app:cornerRadius="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="240dp"/>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
