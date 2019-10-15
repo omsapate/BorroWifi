@@ -40,19 +40,19 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/materialButton"
         style="@style/AppTheme.Button"
-        android:layout_width="0dp"
+        android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_gravity="bottom"
-        android:layout_weight="1"
         android:backgroundTint="#304fff"
+        android:onClick="home"
         android:text="Home"
         android:textColor="#ffffff"
         android:textSize="16dp"
         app:cornerRadius="40dp"
-        android:onClick="home"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connected_animation"
-        tools:layout_editor_absoluteX="161dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/connected_animation" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
