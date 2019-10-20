@@ -167,6 +167,11 @@ public static String getMacAddr() {
     private void openwifisettings() {
         startActivity(new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS));
     }
+
+    public void about(View view) {
+        Intent intent = new Intent(this, About.class);
+        startActivity(intent);
+    }
 //////////////////////////////////////////////////////////////////////////////////////
 
 }

@@ -29,6 +29,7 @@
             <ImageView
                 android:id="@+id/dev_details"
                 android:clickable="true"
+                android:onClick="about"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
