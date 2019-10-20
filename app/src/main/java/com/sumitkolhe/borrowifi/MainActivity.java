@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
         buttonScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //scanWifi();
-                openwifisettings();
+                scanWifi();
+                //openwifisettings();
             }
         });
 
@@ -169,7 +169,7 @@ public static String getMacAddr() {
     }
 
     public void about(View view) {
-        Intent intent = new Intent(this, About.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 //////////////////////////////////////////////////////////////////////////////////////
