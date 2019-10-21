@@ -1,4 +1,4 @@
-package com.sumitkolhe.borrowifi;
+package com.sumitkolhe.borrowifi.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,10 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class getstarted extends AppCompatActivity {
+import com.sumitkolhe.borrowifi.Application.IntroActivity;
+import com.sumitkolhe.borrowifi.R;
+
+public class GetStartedActivity extends AppCompatActivity {
 
     private Button btn;
     @Override
@@ -20,7 +23,7 @@ public class getstarted extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(com.sumitkolhe.borrowifi.getstarted.this, locationaccess.class);
+                Intent i = new Intent(GetStartedActivity.this, LocationAccessActivity.class);
                 startActivity(i);
             }
         });
@@ -30,7 +33,7 @@ public class getstarted extends AppCompatActivity {
                 .getBoolean("isFirstRun", true);
         if (isFirstRun) {
             //show start activity
-            startActivity(new Intent(getstarted.this, IntroActivity.class));
+            startActivity(new Intent(GetStartedActivity.this, IntroActivity.class));
         }
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
                 .putBoolean("isFirstRun", false).apply();

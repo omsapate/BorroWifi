@@ -1,4 +1,4 @@
-package com.sumitkolhe.borrowifi;
+package com.sumitkolhe.borrowifi.Items;
 
 public class Details {
     private String MAC_address;

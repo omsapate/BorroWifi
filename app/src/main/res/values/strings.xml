@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">BorroWifi</string>
     <string name="app_description">Rent Wifi</string>
-    <string name="about_app">BorroWifi is a combination of different hardware and software technologies integrated so as to provide a unified solution for households and public agencies to rent their Wi-Fi connections to neighbors or the general public.</string>
-
+    <string name="about_app">BorroWifi helps you to connect to WIFI hotspots registered with the BorroWifi network.</string>
+    <string name="connect_wifi_yes">Connect</string>
+    <string name="connect_wifi_no">Dismiss</string>
 </resources>

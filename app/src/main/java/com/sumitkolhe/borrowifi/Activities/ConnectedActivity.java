@@ -1,12 +1,14 @@
-package com.sumitkolhe.borrowifi;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.sumitkolhe.borrowifi.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Connected extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.sumitkolhe.borrowifi.R;
+
+public class ConnectedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +18,7 @@ public class Connected extends AppCompatActivity {
     }
 
     public void home(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 }

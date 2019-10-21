@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#ffffff"
-    tools:context=".getstarted">
+    tools:context=".Activities.GetStartedActivity">
 
 
     <TextView
@@ -57,7 +57,7 @@
         style="@style/AppTheme.Button"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:backgroundTint="#304fff"
+        android:backgroundTint="@color/colorAccent"
         android:text="Enable"
         android:textColor="#ffffff"
         android:textSize="16dp"

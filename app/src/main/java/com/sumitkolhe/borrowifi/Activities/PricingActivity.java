@@ -1,4 +1,5 @@
-package com.sumitkolhe.borrowifi;
+package com.sumitkolhe.borrowifi.Activities;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,8 +12,11 @@ import androidx.cardview.widget.CardView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.sumitkolhe.borrowifi.Items.Details;
+import com.sumitkolhe.borrowifi.R;
+import com.sumitkolhe.borrowifi.utils.MacAddressfinder;
 
-public class Pricing extends AppCompatActivity implements View.OnClickListener{
+public class PricingActivity extends AppCompatActivity implements View.OnClickListener{
 
     Details userdetails;
     DatabaseReference refer;
@@ -82,12 +86,12 @@ public class Pricing extends AppCompatActivity implements View.OnClickListener{
 
     public void SendJson(int id,int duration){
 
-        String macjson = MainActivity.getMacAddr();
+        String macjson = MacAddressfinder.getMacAddr();
 
         userdetails.setMAC_address(macjson);
         int time = userdetails.setTimer(duration);
         refer.child(userdetails.getMAC_address()).setValue(time);
-        Toast.makeText(Pricing.this, "Data Sent to Database", Toast.LENGTH_LONG).show();
+        Toast.makeText(PricingActivity.this, "Data Sent to Database", Toast.LENGTH_LONG).show();
 
         openconnected();
     }
@@ -97,7 +101,7 @@ public class Pricing extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void run() {
 
-                Intent i=new Intent(Pricing.this,Connected.class);
+                Intent i=new Intent(PricingActivity.this, ConnectedActivity.class);
                 startActivity(i);
             }
         }, 800);

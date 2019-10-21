@@ -1,10 +1,12 @@
-package com.sumitkolhe.borrowifi;
+package com.sumitkolhe.borrowifi.Activities;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class About extends AppCompatActivity {
+import com.sumitkolhe.borrowifi.R;
+
+public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

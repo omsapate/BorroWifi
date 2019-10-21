@@ -4,7 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".About">
+    tools:context=".Activities.AboutActivity">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:background="@drawable/about_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp">
+
+    </View>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/about_animation"
@@ -24,17 +36,17 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:background="@drawable/card_gradient"
-        android:padding="20dp"
+        android:layout_height="200dp"
+        android:letterSpacing="0.05"
         android:text="@string/about_app"
-        android:textAlignment="center"
+        android:textAlignment="viewEnd"
         android:textColor="#ffffff"
-        android:textSize="16dp"
+        android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/about_animation"
-        app:layout_constraintVertical_bias="0.547"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/about_animation"
+        app:layout_constraintVertical_bias="0.735"
+        tools:layout_editor_absoluteX="-7dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

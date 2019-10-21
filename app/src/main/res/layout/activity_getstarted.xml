@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".getstarted"
+    tools:context=".Activities.GetStartedActivity"
     android:backgroundTint="#ffffff">
 
     <LinearLayout
@@ -73,7 +73,7 @@
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="15dp"
                 android:layout_weight="1"
-                android:backgroundTint="#304fff"
+                android:backgroundTint="@color/colorAccent"
                 android:text="Get started"
                 android:textColor="#ffffff"
                 android:textSize="16dp"

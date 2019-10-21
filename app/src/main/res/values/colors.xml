@@ -2,21 +2,23 @@
 <resources>
     <color name="colorPrimary">#313131</color>
     <color name="colorPrimaryDark">#222222</color>
-    <color name="colorAccent">#0474D5</color>
+    <color name="colorAccent">#FF304FFF</color>
     <color name="background">#FFFFFF</color>
     <color name="transparent">#ffffff</color>
 
 
     <!-- colors for button style -->
-    <color name="gradient_start_color">#4c84ff</color>
-    <color name="gradient_end_color">#18a3fe</color>
+    <color name="gradient_start_color">#FF304FFF</color>
+    <color name="gradient_end_color">#FF304FFF</color>
 
 
     <!-- colors for introactivity -->
     <color name="background_color">#ffffff</color>
     <color name="title_color">#000000</color>
     <color name="description_color">#000000</color>
-    <color name="active_indicator_color">#017DE4</color>
+    <color name="active_indicator_color">#FF304FFF</color>
 
+    <!-- colors for Dialog Header -->
+    <color name="dialog_header">#405CFC</color>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.sumitkolhe.borrowifi;
+package com.sumitkolhe.borrowifi.Activities;
 
 import android.content.Intent;
 import android.location.LocationManager;
@@ -10,7 +10,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class locationaccess extends AppCompatActivity {
+import com.sumitkolhe.borrowifi.R;
+
+public class LocationAccessActivity extends AppCompatActivity {
 
     Button enablebtn;
 
@@ -54,7 +56,7 @@ public class locationaccess extends AppCompatActivity {
         boolean isEnabled = service.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
         if(isEnabled) {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         }
 
@@ -75,7 +77,7 @@ public class locationaccess extends AppCompatActivity {
 
 
     public void perfrom() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 

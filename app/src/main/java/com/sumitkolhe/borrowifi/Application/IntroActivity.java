@@ -1,10 +1,12 @@
-package com.sumitkolhe.borrowifi;
+package com.sumitkolhe.borrowifi.Application;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.chyrta.onboarder.OnboarderActivity;
 import com.chyrta.onboarder.OnboarderPage;
+import com.sumitkolhe.borrowifi.R;
+import com.sumitkolhe.borrowifi.Activities.GetStartedActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,14 +52,14 @@ public class IntroActivity extends OnboarderActivity {
     @Override
     public void onSkipButtonPressed() {
         super.onSkipButtonPressed();
-        Intent intent = new Intent(this, getstarted.class);
+        Intent intent = new Intent(this, GetStartedActivity.class);
         startActivity(intent);
 
     }
 
     @Override
     public void onFinishButtonPressed() {
-        Intent intent = new Intent(this, getstarted.class);
+        Intent intent = new Intent(this, GetStartedActivity.class);
         startActivity(intent);
     }
 
