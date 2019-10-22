@@ -18,7 +18,9 @@ import com.sumitkolhe.borrowifi.utils.MacAddressfinder;
 
 public class PricingActivity extends AppCompatActivity implements View.OnClickListener{
 
+    //Default declaration of objects.
     Details userdetails;
+    //firebase database reference
     DatabaseReference refer;
     Button sendButton;
     ImageView planimage1,planimage2,planimage3;
@@ -43,7 +45,9 @@ public class PricingActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
+        //firebase object to store details of the user's MAC address and the time of the plan the chose.
         userdetails = new Details();
+        //reference of the firebase database used to push data to the realtime database
         refer = FirebaseDatabase.getInstance().getReference().child("Members");
 
     }
@@ -52,6 +56,8 @@ public class PricingActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
        int duration;
        int id;
+
+       //switch case to select one of the plans provided to the user
         switch (view.getId()) {
 
             case R.id.plan1:
@@ -86,6 +92,7 @@ public class PricingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
+    //submit function to submit the selected plan details to the firebase database
     public void finalSubmit(final int id, final int duration){
 
         sendButton.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +104,7 @@ public class PricingActivity extends AppCompatActivity implements View.OnClickLi
         });
     }
 
+    //it combines all the data such as MAC address and time and stores it in variables to be sent to the database.
     public void SendJson(int id,int duration){
 
         String macjson = MacAddressfinder.getMacAddr();
@@ -108,6 +116,7 @@ public class PricingActivity extends AppCompatActivity implements View.OnClickLi
         openconnected();
     }
 
+    //intent to open the final connected activity.
     public void openconnected(){
         new Handler().postDelayed(new Runnable() {
             @Override

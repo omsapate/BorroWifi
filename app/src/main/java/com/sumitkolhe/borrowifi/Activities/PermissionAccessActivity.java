@@ -37,9 +37,11 @@ public class PermissionAccessActivity extends AppCompatActivity {
         setContentView(R.layout.activity_permissionaccess) ;
         enablebtn = findViewById(R.id.enablelocationbtn);
 
+
         checkpermissions();
         locationEnabled();
 
+        //intent to open location settings
         enablebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,9 +58,9 @@ public class PermissionAccessActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
+    //to check permissions and ask from user to allow them
     private void checkpermissions() {
         Dexter.withActivity(this)
                 .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -71,6 +73,7 @@ public class PermissionAccessActivity extends AppCompatActivity {
                 }).check();
     }
 
+    //checks if location is already enabled and if it is enabled then it skips the whole permission activity.
     private void locationEnabled () {
 
         LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -83,6 +86,7 @@ public class PermissionAccessActivity extends AppCompatActivity {
 
     }
 
+    //changes the enable location button to next after enabling locattion from the settings.
     void locationenabledbyuser(){
 
         enablebtn.setText("Next");
@@ -95,12 +99,14 @@ public class PermissionAccessActivity extends AppCompatActivity {
         });
     }
 
+    //intent to open home activity
     public void perform() {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 
 
+    //dialog to ask user again for location permissions if the user denies it the first time.
     public void showdenieddialog(){
         new MaterialStyledDialog.Builder(this)
                 .setTitle("Allow Location Access")
@@ -122,8 +128,6 @@ public class PermissionAccessActivity extends AppCompatActivity {
                         System.exit(0);
                     }
                 })
-
                 .show();
     }
-
 }

@@ -128,33 +128,35 @@ public class HomeActivity extends ListActivity {
 ////////////////////////////////////////////////////////////////////////////////////////
 
     //Broadcast receiver is used to scan for available wifi hotspots and cast them to the list view created earlier
-class WifiScanReceiver extends BroadcastReceiver {
-    @SuppressLint("UseValueOf")
-    public void onReceive(Context c, Intent intent) {
-        results = wifiManager.getScanResults();
-        wifiresultsize = new String[results.size()];
-        for(int i = 0; i < results.size(); i++){
-            wifiresultsize[i] = ((results.get(i)).toString());
-        }
-        String filtered[] = new String[results.size()];
-        int counter = 0;
-        for (String eachWifi : wifiresultsize) {
-
-            if (eachWifi.contains("borrowifi")) {
-                String[] temp = eachWifi.split(",");
-                filtered[counter] = temp[0].substring(5).trim();// +temp[3].substring(6).trim(); //+"\n" + temp[2].substring(12).trim()+"\n" ;//0->SSID, 2->Key Management 3-> Strength
-                counter++;
+    class WifiScanReceiver extends BroadcastReceiver {
+        @SuppressLint("UseValueOf")
+        public void onReceive(Context c, Intent intent) {
+            results = wifiManager.getScanResults();
+            wifiresultsize = new String[results.size()];
+            for(int i = 0; i < results.size(); i++){
+                wifiresultsize[i] = ((results.get(i)).toString());
             }
-        }
-        adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.list_item, R.id.label, filtered);
-        listView.setAdapter(adapter); //casting the scanned wifi connections onto the list view.
+            String filtered[] = new String[results.size()];
+            int counter = 0;
+            for (String eachWifi : wifiresultsize) {
 
+                if (eachWifi.contains("borrowifi")) {
+                    String[] temp = eachWifi.split(",");
+                    filtered[counter] = temp[0].substring(5).trim();// +temp[3].substring(6).trim(); //+"\n" + temp[2].substring(12).trim()+"\n" ;//0->SSID, 2->Key Management 3-> Strength
+                    counter++;
+                }
+            }
+            adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.list_item, R.id.label, filtered);
+            listView.setAdapter(adapter); //casting the scanned wifi connections onto the list view.
+
+        }
     }
-}
 
 ///////////////////////////////////////////////////////////////////
 
 //FUNCTIONS
+
+    //To prevent from going back to the getstarted activity
     @Override
     public void onBackPressed() {
         Intent a = new Intent(Intent.ACTION_MAIN);
@@ -164,6 +166,7 @@ class WifiScanReceiver extends BroadcastReceiver {
 
     }
 
+    //to rescan the wifi connections
     private void scanWifi() {
         arrayList.clear();
         registerReceiver(wifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
@@ -180,6 +183,7 @@ class WifiScanReceiver extends BroadcastReceiver {
         super.onResume();
     }
 
+    //connect to the wifi using the SSID
     private void finallyConnect(String networkSSID) {
 
         WifiConfiguration conf = new WifiConfiguration();
@@ -190,14 +194,11 @@ class WifiScanReceiver extends BroadcastReceiver {
 
         int networkId = wifiManager.addNetwork(conf);
         WifiInfo wifi_inf = wifiManager.getConnectionInfo();
-
-/////important!!!
         wifiManager.disableNetwork(wifi_inf.getNetworkId());
-/////////////////
-
         wifiManager.enableNetwork(networkId, true);
     }
 
+    //Dialog for connecting to the selected WIFI
     private void connectToWifi(final String wifiSSID) {
 
         new MaterialStyledDialog.Builder(this)
@@ -225,7 +226,6 @@ class WifiScanReceiver extends BroadcastReceiver {
 
                 .show();
     }
-
 
    /* public boolean isWifiConnected()
     {
