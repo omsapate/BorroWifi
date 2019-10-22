@@ -13,6 +13,7 @@
     <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
         <item name="colorButtonNormal">#2196f3</item>
         <item name="android:textColor">#ffffff</item>
+        <item name="android:background">@drawable/arrow</item>
     </style>
 
     <style name="ButtonStyle"

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class PricingActivity extends AppCompatActivity implements View.OnClickLi
     Details userdetails;
     DatabaseReference refer;
     Button sendButton;
+    ImageView planimage1,planimage2,planimage3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,13 @@ public class PricingActivity extends AppCompatActivity implements View.OnClickLi
         CardView card1 = findViewById(R.id.plan1);
         CardView card2 = findViewById(R.id.plan2);
         CardView card3 = findViewById(R.id.plan3);
-        sendButton = findViewById(R.id.sendbtn);
+        planimage1 = findViewById(R.id.plan1image);
+        planimage1.setImageResource(R.drawable.ic_round);
+        planimage2 = findViewById(R.id.plan2image);
+        planimage2.setImageResource(R.drawable.ic_round);
+        planimage3 = findViewById(R.id.plan3image);
+        planimage3.setImageResource(R.drawable.ic_round);
+        sendButton = findViewById(R.id.sendpricingBtn);
         card1.setOnClickListener(this);
         card2.setOnClickListener(this);
         card3.setOnClickListener(this);
@@ -48,24 +56,30 @@ public class PricingActivity extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()) {
 
             case R.id.plan1:
-                duration = 60;
+                duration = 600;
                 id=1;
-                Toast.makeText(this, "1 min", Toast.LENGTH_LONG).show();
                 finalSubmit(id,duration);
+                planimage1.setImageResource(R.drawable.ic_check);
+                planimage2.setImageResource(R.drawable.ic_round);
+                planimage3.setImageResource(R.drawable.ic_round);
                 break;
 
             case R.id.plan2:
-                duration = 300;
+                duration = 1800;
                 id=2;
-                Toast.makeText(this, "5 min", Toast.LENGTH_LONG).show();
                 finalSubmit(id,duration);
+                planimage1.setImageResource(R.drawable.ic_round);
+                planimage2.setImageResource(R.drawable.ic_check);
+                planimage3.setImageResource(R.drawable.ic_round);
                 break;
 
             case R.id.plan3:
-                duration = 1800;
+                duration = 3600;
                 id=3;
-                Toast.makeText(this, "30 min", Toast.LENGTH_LONG).show();
                 finalSubmit(id,duration);
+                planimage1.setImageResource(R.drawable.ic_round);
+                planimage2.setImageResource(R.drawable.ic_round);
+                planimage3.setImageResource(R.drawable.ic_check);
                 break;
 
         }

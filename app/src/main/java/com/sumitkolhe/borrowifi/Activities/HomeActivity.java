@@ -45,7 +45,6 @@ public class HomeActivity extends ListActivity {
     //private Button buttonScan;
     private List<ScanResult> results;
     private ArrayList<String> arrayList = new ArrayList<>();
-    private ArrayAdapter adapter;
     private TextView mactextview;
     private Button nextbutton;
     String wifiresultsize[];
@@ -65,6 +64,8 @@ public class HomeActivity extends ListActivity {
         //buttonScan = findViewById(R.id.scanBtn);
        // mactextview = findViewById(R.id.mac);
         refreshbutton = findViewById(R.id.refresh);
+        refreshbutton.setScale(4F);
+        refreshbutton.setRepeatCount(2);
         nextbutton = findViewById(R.id.nextBtn);
         listView=getListView();
         getListView().setDivider(null);
@@ -109,6 +110,7 @@ public class HomeActivity extends ListActivity {
         refreshbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 refreshbutton.playAnimation();
                 scanWifi();
 

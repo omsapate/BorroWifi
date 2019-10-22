@@ -1,87 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.GetStartedActivity"
-    android:backgroundTint="#ffffff">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="welcome.json" />
+
+
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="5">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:gravity="center"
+        android:text="Welcome To BorroWifi"
+        android:textColor="#424242"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView"
+        tools:layout_editor_absoluteX="-16dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:orientation="vertical"
-            android:layout_marginTop="100dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Your one stop soultion for WiFi needs"
+        android:textColor="#424242"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/getStartedButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.039"
+        tools:layout_editor_absoluteX="0dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Welcome To BorroWifi"
-                android:textAlignment="center"
-                android:textColor="#3D3D3D"
-                android:textSize="30dp"
-                android:textStyle="bold">
-            </TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Your one stop soultion for WiFi needs"
-                android:textAlignment="center"
-                android:textColor="#363636"
-                android:textSize="15dp">
-            </TextView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2">
-
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/payment_animation"
-                android:layout_width="match_parent"
-                android:layout_height="398dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="centerCrop"
-                app:layout_constraintStart_toStartOf="parent"
-                app:lottie_autoPlay="true"
-                app:lottie_fileName="welcome.json"
-                app:lottie_loop="true" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/getStartedButton"
-                style="@style/AppTheme.Button"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="15dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorAccent"
-                android:text="Get started"
-                android:textColor="#ffffff"
-                android:textSize="16dp"
-                app:cornerRadius="40dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="240dp"/>
-        </LinearLayout>
-    </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/getStartedButton"
+        style="@style/AppTheme.Button"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="52dp"
+        app:cornerRadius="40dp"
+        app:icon="@drawable/arrow"
+        app:iconGravity="textStart"
+        app:iconSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
