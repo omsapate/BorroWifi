@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -105,7 +104,6 @@ public class PricingActivity extends AppCompatActivity implements View.OnClickLi
         userdetails.setMAC_address(macjson);
         int time = userdetails.setTimer(duration);
         refer.child(userdetails.getMAC_address()).setValue(time);
-        Toast.makeText(PricingActivity.this, "Data Sent to Database", Toast.LENGTH_LONG).show();
 
         openconnected();
     }

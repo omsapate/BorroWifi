@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">BorroWifi</string>
     <string name="app_description">Rent Wifi</string>
-    <string name="about_app">BorroWifi helps you to connect to WIFI hotspots registered with the BorroWifi network.</string>
+    <string name="about_app">BorroWifi helps you to connect to WIFI hotspots registered with the BorroWifi network. You can select any time based plan and use the WiFi connection for that particular period of time.</string>
     <string name="connect_wifi_yes">Connect</string>
     <string name="connect_wifi_no">Dismiss</string>
 </resources>

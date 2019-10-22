@@ -1,5 +1,6 @@
 package com.sumitkolhe.borrowifi.Activities;
 
+import android.accessibilityservice.AccessibilityService;
 import android.annotation.SuppressLint;
 import android.app.ListActivity;
 import android.content.BroadcastReceiver;
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.View;
@@ -47,8 +49,10 @@ public class HomeActivity extends ListActivity {
     private ArrayList<String> arrayList = new ArrayList<>();
     private TextView mactextview;
     private Button nextbutton;
+    private ArrayAdapter adapter;
     String wifiresultsize[];
     LottieAnimationView refreshbutton;
+    private AccessibilityService mContext;
 ///////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -69,10 +73,11 @@ public class HomeActivity extends ListActivity {
         nextbutton = findViewById(R.id.nextBtn);
         listView=getListView();
         getListView().setDivider(null);
-        getListView().setDividerHeight(5);
+        getListView().setDividerHeight(4);
         wifiReceiver = new WifiScanReceiver();
         macaddressforjson = getMacAddr();
         //mactextview.setText(getMacAddr());
+
         ////////////////////////////////////////
 
         //open next screen on pressing next button on main activity
@@ -87,7 +92,7 @@ public class HomeActivity extends ListActivity {
         //CHECKING IF WIFI SERVICE IS ON OR OFF
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         if (!wifiManager.isWifiEnabled()) {
-            Toast.makeText(this,"OFF",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"WiFi is off",Toast.LENGTH_LONG).show();
             wifiManager.setWifiEnabled(true);
         }
 
@@ -98,7 +103,6 @@ public class HomeActivity extends ListActivity {
                 // selected item
                 String ssid = ((TextView) view).getText().toString();
                 connectToWifi(ssid);
-                Toast.makeText(HomeActivity.this,"Wifi SSID : "+ssid,Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -116,10 +120,9 @@ public class HomeActivity extends ListActivity {
 
             }
         });
+
+        //enablenextbutton();
     }
-
-
-
     //END OF ONCREATE
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -139,11 +142,12 @@ class WifiScanReceiver extends BroadcastReceiver {
 
             if (eachWifi.contains("borrowifi")) {
                 String[] temp = eachWifi.split(",");
-                filtered[counter] = temp[0].substring(5).trim(); //+"\n" + temp[2].substring(12).trim()+"\n" +temp[3].substring(6).trim();//0->SSID, 2->Key Management 3-> Strength
+                filtered[counter] = temp[0].substring(5).trim();// +temp[3].substring(6).trim(); //+"\n" + temp[2].substring(12).trim()+"\n" ;//0->SSID, 2->Key Management 3-> Strength
                 counter++;
             }
         }
-        listView.setAdapter(new ArrayAdapter<>(getApplicationContext(), R.layout.list_item, R.id.label, filtered)); //casting the scanned wifi connections onto the list view.
+        adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.list_item, R.id.label, filtered);
+        listView.setAdapter(adapter); //casting the scanned wifi connections onto the list view.
 
     }
 }
@@ -166,25 +170,32 @@ class WifiScanReceiver extends BroadcastReceiver {
         wifiManager.startScan();
     }
 
+    protected void onPause() {
+        unregisterReceiver(wifiReceiver);
+        super.onPause();
+    }
+
+    protected void onResume() {
+        registerReceiver(wifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+        super.onResume();
+    }
 
     private void finallyConnect(String networkSSID) {
 
-        WifiConfiguration wifiConfig = new WifiConfiguration();
-        wifiConfig.SSID = "\"" + networkSSID + "\"";
-        wifiConfig.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
-        wifiManager.addNetwork(wifiConfig);
-        // remember id
-        List<WifiConfiguration> list = wifiManager.getConfiguredNetworks();
-        for( WifiConfiguration i : list ) {
-            if(i.SSID != null && i.SSID.equals("\"" + networkSSID + "\"")) {
-                wifiManager.disconnect();
-                wifiManager.enableNetwork(i.networkId, true);
-                wifiManager.reconnect();
-                Toast.makeText(this,"Connecting...",Toast.LENGTH_LONG).show();
-                break;
-            }
-        }
+        WifiConfiguration conf = new WifiConfiguration();
+        conf.SSID = "\"" + networkSSID + "\"";
 
+        conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+        wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+        int networkId = wifiManager.addNetwork(conf);
+        WifiInfo wifi_inf = wifiManager.getConnectionInfo();
+
+/////important!!!
+        wifiManager.disableNetwork(wifi_inf.getNetworkId());
+/////////////////
+
+        wifiManager.enableNetwork(networkId, true);
     }
 
     private void connectToWifi(final String wifiSSID) {
@@ -195,7 +206,6 @@ class WifiScanReceiver extends BroadcastReceiver {
                 .setDescription("Selected network : "+ wifiSSID)
                 .setIcon(R.drawable.ic_wifi)
                 .setHeaderColor(R.color.dialog_header)
-                .withDarkerOverlay(true)
                 .withIconAnimation(true)
                 .setCancelable(true)
                 .withDivider(true)
@@ -215,6 +225,20 @@ class WifiScanReceiver extends BroadcastReceiver {
 
                 .show();
     }
+
+
+   /* public boolean isWifiConnected()
+    {
+        ConnectivityManager cm = (ConnectivityManager)this.mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        return (cm != null) && (cm.getActiveNetworkInfo() != null) &&
+                (cm.getActiveNetworkInfo().getType() == 1);
+    }*/
+
+   /* public void enablenextbutton(){
+        if(isWifiConnected()){
+            nextbutton.setVisibility(View.VISIBLE);
+        }
+    }*/
 
 //////////////////////////////////////////////////////////////////////////////////////
 

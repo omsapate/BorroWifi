@@ -23,7 +23,7 @@ public class GetStartedActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(GetStartedActivity.this, LocationAccessActivity.class);
+                Intent i = new Intent(GetStartedActivity.this, PermissionAccessActivity.class);
                 startActivity(i);
             }
         });

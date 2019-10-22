@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.AboutActivity"></activity>
-        <activity android:name=".Activities.LocationAccessActivity" />
+        <activity android:name=".Activities.PermissionAccessActivity" />
         <activity android:name=".Activities.HomeActivity" />
         <activity android:name=".Activities.ConnectedActivity" />
         <activity android:name=".Activities.PricingActivity" />
