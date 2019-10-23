@@ -112,7 +112,7 @@ public class PermissionAccessActivity extends AppCompatActivity {
                 .setTitle("Allow Location Access")
                 .setStyle(Style.HEADER_WITH_TITLE)
                 .setDescription("BorroWifi needs location access to scan nearby WIFI connections")
-                .setHeaderColor(R.color.dialog_header)
+                .setHeaderColor(R.color.location_dialog_header)
                 .withDivider(true)
                 .setPositiveText("Allow")
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
@@ -124,8 +124,9 @@ public class PermissionAccessActivity extends AppCompatActivity {
                 .onNegative(new MaterialDialog.SingleButtonCallback() {
                     @Override
                     public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        finish();
-                        System.exit(0);
+                            moveTaskToBack(true);
+                            android.os.Process.killProcess(android.os.Process.myPid());
+                            System.exit(1);
                     }
                 })
                 .show();

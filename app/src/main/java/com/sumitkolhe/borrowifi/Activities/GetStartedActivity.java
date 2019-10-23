@@ -7,7 +7,6 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.sumitkolhe.borrowifi.Application.IntroActivity;
 import com.sumitkolhe.borrowifi.R;
 
 public class GetStartedActivity extends AppCompatActivity {
@@ -28,27 +27,6 @@ public class GetStartedActivity extends AppCompatActivity {
             }
         });
 
-        //TO CHECK IF THE ACTIVITY IS RUN FOR THE FIRST TIME OR NOT TO PREVENT INTROACTIVITY FROM RUNNING EVERY TIME THE APPLICATION IS LAUNCHED
-        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .getBoolean("isFirstRun", true);
-        if (isFirstRun) {
-            //show start activity
-            startActivity(new Intent(GetStartedActivity.this, IntroActivity.class));
-        }
-        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                .putBoolean("isFirstRun", false).apply();
-
-
-
     }
 
-
-    @Override
-    public void onBackPressed() {
-        Intent a = new Intent(Intent.ACTION_MAIN);
-        a.addCategory(Intent.CATEGORY_HOME);
-        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(a);
-
-    }
 }
